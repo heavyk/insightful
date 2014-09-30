@@ -18,16 +18,11 @@ describe('Subscriber', function () {
       var spy = sinon.spy();
       sub.on('unsubscribe', spy);
       sub.unsubscribe();
-      spy.should.have.been.calledOnce;
-      setTimeout(done, 10);
-    })
-  })
 
-  describe('#tick()', function () {
-    it('should invoke the callback from the constructor', function () {
-      sub.tick('test');
-      cb.should.have.been.calledOnce;
-      cb.should.have.been.calledWith('test');
+      setTimeout(function () {
+        spy.should.have.been.calledOnce;
+        done();
+      }, 10);
     })
   })
 })
