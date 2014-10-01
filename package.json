@@ -1,6 +1,6 @@
 {
-  "name": "super-pubsub",
-  "version": "0.0.3",
+  "name": "brocast",
+  "version": "0.0.0",
   "devDependencies": {
     "mocha": "1.*",
     "chai": "1.*",
@@ -9,7 +9,7 @@
   },
   "main": "./index.js",
   "description": "Abstract PubSub implementation. Extend this if you're implementing...",
-  "homepage": "https://github.com/tounano/super-pubsub/",
+  "homepage": "https://github.com/tounano/brocast/",
   "author": "ClickHere <js@clickhere.co.il>",
   "keywords": [
     "pubsub",
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tounano/super-pubsub"
+    "url": "https://github.com/tounano/brocast"
   },
   "engines": {
     "node": ">=0.10.0"
