@@ -1,29 +1,58 @@
 {
-  "name": "brocast",
+  "name": "insight",
   "version": "0.0.1",
-  "devDependencies": {
-    "mocha": "2.*",
-    "chai": "1.*",
-    "sinon": "1.*",
-    "sinon-chai":"2.*"
+  "description": "I never percieved it in this way before, until today",
+  "mo-description": [
+    "I was admiring the previous author's work on brocast when I realized that our brains have a similar system to pub/sub. As the night progressed, I understood that there is more than just a messaging system. this is my experiment to see if I can replicate some of the key attributes.",
+    "previously, I had also been admiring the code written in petkaantonov/FastEmitter and I noticed the whole domains bit, and led me to study those, why they are being removed from node, and it lead me to do a whole investigation on how our brains percieve errors. I hope I can explain it soon with the streams implementation."
+  ],
+  "homepage": "https://github.com/heavyk/live-insight",
+  "author": "Kenneth Bentley <mechanicofthesequence@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heavyk/live-insight"
   },
+  "license": "Unlicense",
+  "origin": [
+    {
+      "name": "brocast",
+      "version": "0.0.1",
+      "description": "Abstract PubSub implementation. Extend this if you're implementing...",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/tounano/brocast"
+      },
+      "license": "MIT",
+      "author": "ClickHere <js@clickhere.co.il>"
+    },
+    {
+      "name": "fastemitter",
+      "description": "A fast implementation of the node EventEmitter core module",
+      "version": "0.0.5-0",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/petkaantonov/FastEmitter.git"
+      },
+      "license": "MIT",
+      "author": {
+        "name": "Petka Antonov",
+        "email": "petka_antonov@hotmail.com",
+        "url": "http://github.com/petkaantonov/"
+      }
+    }
+  ],
   "main": "./index.js",
-  "description": "Abstract PubSub implementation. Extend this if you're implementing...",
-  "homepage": "https://github.com/tounano/brocast/",
-  "author": "ClickHere <js@clickhere.co.il>",
   "keywords": [
     "pubsub",
     "pub/sub",
     "publish",
     "subscribe"
   ],
-  "licenses": {
-    "type": "The MIT License",
-    "url": "http://www.opensource.org/licenses/mit-license.php"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/tounano/brocast"
+  "devDependencies": {
+    "mocha": "2.*",
+    "chai": "1.*",
+    "sinon": "1.*",
+    "sinon-chai":"2.*"
   },
   "engines": {
     "node": ">=0.10.0"
