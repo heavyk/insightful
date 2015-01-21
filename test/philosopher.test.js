@@ -5,7 +5,7 @@ chai.should();
 chai.use(sinonChai);
 
 describe('Philosopher', function () {
-  var Philosopher = require('../lib/subscriber');
+  var Philosopher = require('../lib/philosopher');
   var sub, cb;
 
   beforeEach(function () {

@@ -5,7 +5,7 @@ chai.should();
 chai.use(sinonChai);
 
 describe('Insight', function () {
-  var Insight = require('../lib/channel');
+  var Insight = require('../lib/insight');
   var eventSpy, insight, topicName;
   beforeEach(function () {
     topicName = 'testInsight';
@@ -59,7 +59,7 @@ describe('Insight', function () {
     })
 
     it('with an instance of `Philosopher`', function (done) {
-      eventSpy.getCall(0).args[0].should.be.instanceOf(require('../lib/subscriber'));
+      eventSpy.getCall(0).args[0].should.be.instanceOf(require('../lib/philosopher'));
       setTimeout(done, 10);
     })
   })

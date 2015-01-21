@@ -5,7 +5,7 @@ chai.should();
 chai.use(sinonChai);
 
 describe('Wisdom', function () {
-  var Wisdom = require('../lib/pubsub');
+  var Wisdom = require('../lib/wisdom');
   var wisdom;
 
   beforeEach(function () {
@@ -26,7 +26,7 @@ describe('Wisdom', function () {
     })
 
     it('with a new Insight as an argument', function (done) {
-      eventSpy.getCall(0).args[0].should.be.instanceOf(require('../lib/channel'));
+      eventSpy.getCall(0).args[0].should.be.instanceOf(require('../lib/insight'));
       setTimeout(done, 10);
     })
   })

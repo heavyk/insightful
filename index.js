@@ -1,5 +1,5 @@
 module.exports = {
-  Wisdom: require('./lib/pubsub'),
-  Insight: require('./lib/channel'),
-  Philosopher: require('./lib/subscriber')
+  Wisdom: require('./lib/wisdom'),
+  Insight: require('./lib/insight'),
+  Philosopher: require('./lib/philosopher')
 }
