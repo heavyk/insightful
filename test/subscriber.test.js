@@ -4,20 +4,20 @@ var chai = require('chai'),
 chai.should();
 chai.use(sinonChai);
 
-describe('Subscriber', function () {
-  var Subscriber = require('../lib/subscriber');
+describe('Philosopher', function () {
+  var Philosopher = require('../lib/subscriber');
   var sub, cb;
 
   beforeEach(function () {
     cb = sinon.spy();
-    sub = new Subscriber('testName', cb);
+    sub = new Philosopher('awesomeness', cb);
   });
 
-  describe('#unsubscribe()', function () {
-    it('should emit `unsubscribe` event', function (done) {
+  describe('#disregard()', function () {
+    it('should emit `disregard` event', function (done) {
       var spy = sinon.spy();
-      sub.on('unsubscribe', spy);
-      sub.unsubscribe();
+      sub.on('disregard', spy);
+      sub.disregard();
 
       setTimeout(function () {
         spy.should.have.been.calledOnce;

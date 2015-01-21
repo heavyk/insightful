@@ -4,28 +4,28 @@ var chai = require('chai'),
 chai.should();
 chai.use(sinonChai);
 
-describe('PubSub', function () {
-  var PubSub = require('../lib/pubsub');
-  var pubsub;
+describe('Wisdom', function () {
+  var Wisdom = require('../lib/pubsub');
+  var wisdom;
 
   beforeEach(function () {
-    pubsub = new PubSub();
+    wisdom = new Wisdom();
   });
 
-  describe('#channel()', function () {
-    var channelName, eventSpy, channel;
+  describe('#examine()', function () {
+    var conduct, eventSpy, insight;
     beforeEach(function () {
       eventSpy = sinon.spy();
-      pubsub.on('newChannel', eventSpy);
-      channel = pubsub.channel(channelName);
+      wisdom.on('newInsight', eventSpy);
+      insight = wisdom.examine(conduct);
     });
 
-    it('should emit `newChannel` event', function (done) {
+    it('should emit `newInsight` event', function (done) {
       eventSpy.should.be.calledOnce;
       setTimeout(done, 10);
     })
 
-    it('with a new Channel as argument', function (done) {
+    it('with a new Insight as an argument', function (done) {
       eventSpy.getCall(0).args[0].should.be.instanceOf(require('../lib/channel'));
       setTimeout(done, 10);
     })

@@ -4,61 +4,61 @@ var chai = require('chai'),
 chai.should();
 chai.use(sinonChai);
 
-describe('Channel', function () {
-  var Channel = require('../lib/channel');
-  var eventSpy, channel, channelName;
+describe('Insight', function () {
+  var Insight = require('../lib/channel');
+  var eventSpy, insight, topicName;
   beforeEach(function () {
-    channelName = 'testChannel';
-    channel = new Channel(channelName);
+    topicName = 'testInsight';
+    insight = new Insight(topicName);
     eventSpy = sinon.spy();
   });
 
-  describe('#publish()', function () {
-    it('should emit a `published` event', function (done) {
-      channel.on('published', eventSpy);
-      channel.publish('testEvent', 'testMessage');
+  describe('#consider()', function () {
+    it('should emit a `considered` event', function (done) {
+      insight.on('considered', eventSpy);
+      insight.consider('testConduct', 'testMessage');
       eventSpy.should.have.been.calledOnce;
       setTimeout(done, 10);
     })
 
     it('with message as the first arg', function (done) {
-      channel.on('published', function (msg) {
-        msg.should.have.ownProperty('name');
-        msg.should.have.ownProperty('channel');
-        msg.should.have.ownProperty('timestamp');
-        msg.should.have.ownProperty('msg');
+      insight.on('examined', function (msg) {
+        msg.should.have.ownProperty('topic');
+        msg.should.have.ownProperty('conduct');
+        msg.should.have.ownProperty('insight');
+        msg.should.have.ownProperty('at');
       });
-      channel.publish('testEvent', 'testMsg');
+      insight.examine('testConduct', 'testMsg');
       setTimeout(done, 10);
     })
 
     it('and message must have the proper `msg` and `eventName`', function (done) {
-      channel.on('published', function (msg) {
-        msg.name.should.be.equal('testEvent');
+      insight.on('examined', function (msg) {
+        msg.name.should.be.equal('testConduct');
         msg.msg.should.be.equal('testMsg');
       });
-      channel.publish('testEvent', 'testMsg');
+      insight.examine('testConduct', 'testMsg');
       setTimeout(done, 10);
     })
   })
 
-  describe('#subscribe()', function () {
-    var tstCb, tstEventName;
+  describe('#examine()', function () {
+    var tstCb, tstConductName;
 
     beforeEach(function () {
       tstCb = sinon.spy();
-      tstEventName = sinon.spy();
+      tstConductName = sinon.spy();
 
-      channel.on('newSubscriber', eventSpy);
-      channel.subscribe(tstEventName, tstCb);
+      insight.on('newPhilosopher', eventSpy);
+      insight.examine(tstConductName, tstCb);
     });
 
-    it('should emit a `newSubscriber` event', function (done) {
+    it('should emit a `newPhilosopher` event', function (done) {
       eventSpy.should.have.been.calledOnce;
       setTimeout(done, 10);
     })
 
-    it('with an instance of `Subscriber`', function (done) {
+    it('with an instance of `Philosopher`', function (done) {
       eventSpy.getCall(0).args[0].should.be.instanceOf(require('../lib/subscriber'));
       setTimeout(done, 10);
     })
@@ -67,12 +67,12 @@ describe('Channel', function () {
   describe('#destroy()', function () {
     var removeAllListenersSpy;
     beforeEach(function () {
-      removeAllListenersSpy = sinon.spy(channel, 'removeAllListeners');
-      channel.on('close', eventSpy);
-      channel.destroy();
+      removeAllListenersSpy = sinon.spy(insight, 'removeAllListeners');
+      insight.on('peace', eventSpy);
+      insight.destroy();
     });
 
-    it('should emit a `close` event', function (done) {
+    it('should emit a `peace` event', function (done) {
       eventSpy.should.have.been.calledOnce;
       setTimeout(done, 10);
     })

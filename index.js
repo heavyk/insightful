@@ -1,5 +1,5 @@
 module.exports = {
-  Brocast: require('./lib/pubsub'),
-  Channel: require('./lib/channel'),
-  Subscriber: require('./lib/subscriber')
+  Wisdom: require('./lib/pubsub'),
+  Insight: require('./lib/channel'),
+  Philosopher: require('./lib/subscriber')
 }
