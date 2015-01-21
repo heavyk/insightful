@@ -6,16 +6,16 @@ chai.use(sinonChai);
 
 describe('Insight', function () {
   var Insight = require('../lib/insight');
-  var eventSpy, insight, topicName;
+  var eventSpy, insight, insightTopic;
   beforeEach(function () {
-    topicName = 'testInsight';
-    insight = new Insight(topicName);
+    insightTopic = 'testInsight';
+    insight = new Insight(insightTopic);
     eventSpy = sinon.spy();
   });
 
   describe('#consider()', function () {
-    it('should emit a `considered` event', function (done) {
-      insight.on('considered', eventSpy);
+    it('should emit a `consideration` event', function (done) {
+      insight.on('consideration', eventSpy);
       insight.consider('testConduct', 'testMessage');
       eventSpy.should.have.been.calledOnce;
       setTimeout(done, 10);
