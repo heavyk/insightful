@@ -16,29 +16,29 @@ describe('Insight', function () {
   describe('#consider()', function () {
     it('should emit a `consideration` event', function (done) {
       insight.on('consideration', eventSpy);
-      insight.consider('testConduct', 'testMessage');
+      insight.considering('testConduct', 'testMessage');
       eventSpy.should.have.been.calledOnce;
       setTimeout(done, 10);
     })
 
     it('with message as the first arg', function (done) {
-      insight.on('examined', function (msg) {
+      insight.on('consideration', function (msg) {
         msg.should.have.ownProperty('topic');
         msg.should.have.ownProperty('conduct');
         msg.should.have.ownProperty('insight');
         msg.should.have.ownProperty('at');
       });
-      insight.examine('testConduct', 'testMsg');
-      setTimeout(done, 10);
+      insight.considering('testConduct', 'testMsg');
+      setTimeout(done, 100);
     })
 
     it('and message must have the proper `msg` and `eventName`', function (done) {
-      insight.on('examined', function (msg) {
-        msg.name.should.be.equal('testConduct');
-        msg.msg.should.be.equal('testMsg');
+      insight.on('consideration', function (msg) {
+        msg.conduct.should.be.equal('testConduct');
+        msg.insight.should.be.equal('testMsg');
       });
-      insight.examine('testConduct', 'testMsg');
-      setTimeout(done, 10);
+      insight.considering('testConduct', 'testMsg');
+      setTimeout(done, 100);
     })
   })
 

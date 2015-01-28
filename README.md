@@ -1,10 +1,12 @@
-# brocast
+# insight-js
 
-An abstract reactive implementation of Pub/Sub.
+A *very* abstracted implementation of Pub/Sub.
 
-If you want to develop your own implementation, you can extend this.
+## example ##
 
-## (to be continued...)
+```
+// TODO
+```
 
 ## install
 
@@ -16,4 +18,4 @@ npm install brocast
 
 ## license
 
-MIT
+Unlicense
