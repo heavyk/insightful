@@ -1,5 +1,5 @@
 {
-  "name": "insight",
+  "name": "live-insight",
   "version": "0.0.1",
   "description": "I never percieved it in this way before, until today",
   "mo-description": [
@@ -49,12 +49,21 @@
     "subscribe"
   ],
   "devDependencies": {
-    "mocha": "2.*",
-    "chai": "1.*",
-    "sinon": "1.*",
-    "sinon-chai":"2.*"
+    "chai": "1",
+    "mocha": "2",
+    "sinon": "1",
+    "sinon-chai": "2",
+    "standard": "^3.2.0"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "standard && mocha"
+  },
+  "standard": {
+    "ignore": [
+      "test/**"
+    ]
   }
 }
